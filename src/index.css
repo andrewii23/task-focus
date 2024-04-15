@@ -38,16 +38,12 @@ h2 {
 }
 
 input,
-select,
-input:focus {
+select {
   border: none;
   outline: none;
   width: 100%;
   font-size: 1.25rem;
-  -webkit-border: none;
-  -webkit-outline: none;
-  -webkit-width: 100%;
-  -webkit-font-size: 1.25rem;
+  -webkit-appearance: none; /* Preferred solution for iOS */
 }
 
 .add-task {
