@@ -44,6 +44,10 @@ input:focus {
   outline: none;
   width: 100%;
   font-size: 1.25rem;
+  -webkit-border: none;
+  -webkit-outline: none;
+  -webkit-width: 100%;
+  -webkit-font-size: 1.25rem;
 }
 
 .add-task {
