@@ -43,7 +43,11 @@ select {
   outline: none;
   width: 100%;
   font-size: 1.25rem;
+  /* New properties for background and text color */
+  background-color: transparent;
+  color: black;
   -webkit-appearance: none; /* Preferred solution for iOS */
+  box-sizing: border-box; /* Optional for further control */
 }
 
 .add-task {
