@@ -1,6 +1,4 @@
-// App.jsx
-// eslint-disable-next-line no-unused-vars
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Doing from "./Doing";
 import Logs from "./Logs";
 import Todo from "./Todo";
@@ -10,6 +8,32 @@ const App = () => {
   const [logs, setLogs] = useState([]);
   const [todoTasks, setTodoTasks] = useState([]);
   const [doingTasks, setDoingTasks] = useState([]);
+
+  // Function to save state to local storage
+  const saveStateToLocalStorage = () => {
+    localStorage.setItem(
+      "todoApp",
+      JSON.stringify({ logs, todoTasks, doingTasks })
+    );
+  };
+
+  // Function to load state from local storage
+  const loadStateFromLocalStorage = () => {
+    const savedState = JSON.parse(localStorage.getItem("todoApp"));
+    if (savedState) {
+      setLogs(savedState.logs || []);
+      setTodoTasks(savedState.todoTasks || []);
+      setDoingTasks(savedState.doingTasks || []);
+    }
+  };
+
+  useEffect(() => {
+    loadStateFromLocalStorage();
+  }, []); // Run only once when component mounts
+
+  useEffect(() => {
+    saveStateToLocalStorage();
+  }, [logs, todoTasks, doingTasks]); // Run whenever logs, todoTasks, or doingTasks change
 
   const handleTaskChange = (event) => {
     setTask(event.target.value);
