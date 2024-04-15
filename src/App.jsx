@@ -58,7 +58,7 @@ const App = () => {
 
   return (
     <div className="container">
-      <h1>To do List 📋</h1>
+      <h1>Task Focus App 📋</h1>
       <div className="add-task">
         <input
           type="text"
